@@ -5,6 +5,7 @@ import { hot } from 'react-hot-loader';
 // Route components
 import Signup from './Signup';
 import Form from './Form';
+import DownloadPage from './DownloadPage';
 
 class App extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class App extends Component {
             that happen to be nested within an if statement */}
         <Switch>
           <Route exact path="/signup" component={Signup} />
+          <Route exact path="/download" component={DownloadPage} />
           <Route exact path="/" render={() => <Form />} />
         </Switch>
       </div>
