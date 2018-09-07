@@ -26,6 +26,14 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'public/'),
     port: 3000,
-    publicPath: 'http://localhost:3000/dist/'
+    inline: true,
+    hotOnly: true,
+    publicPath: 'http://localhost:3000/dist/',
+    proxy: [
+      {
+        context: ['/api'],
+        target: 'http://localhost:4000'
+      }
+    ]
   }
 }

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "server": "nodemon server/server",
-    "client": "webpack-dev-server",
+    "client": "webpack-dev-server --hot",
     "build": "webpack"
   },
   "repository": {
