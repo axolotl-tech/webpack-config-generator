@@ -1,24 +1,16 @@
 {
   "name": "webpack-config-generator",
   "version": "1.0.0",
-  "description": "",
+  "private": true,
+  "description": "Generates a starter webpack config file",
   "main": "server/server.js",
   "scripts": {
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "server": "nodemon server/server",
-    "client": "webpack-dev-server --hot",
+    "start": "concurrently --kill-others-on-fail \"npm run start:server\" \"npm run start:client\"",
+    "start:server": "nodemon server/server",
+    "start:client": "webpack-dev-server --hot",
     "build": "webpack"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Webpack-Config-Generator/Webpack-Config-Generator.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Webpack-Config-Generator/Webpack-Config-Generator/issues"
-  },
-  "homepage": "https://github.com/Webpack-Config-Generator/Webpack-Config-Generator#readme",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
