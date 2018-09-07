@@ -5,6 +5,7 @@ const {
 } = require('./functions');
 
 function generateConfiguration(req, res, next) {
+  console.log('IN GENERATE CONFIG, REQ BODY: ', req.body);
   if (req.body && req.body.answers) {
     const { answers } = req.body;
 
@@ -20,7 +21,7 @@ function generateConfiguration(req, res, next) {
       !configuration.installScript ||
       !configuration.listPackageImports
     ) {
-      return res.status(500).send('Failed to build the configuration object.');
+      return res.status(418).send('Failed to build the configuration object.');
     }
 
     // Pass on the result
@@ -28,7 +29,7 @@ function generateConfiguration(req, res, next) {
     next();
   } else {
     // If we received an improper body, return an error
-    return res.status(400).end('No data received');
+    return res.status(418).end('No data received');
   }
 }
 

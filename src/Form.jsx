@@ -24,11 +24,14 @@ class Form extends React.Component {
     });
   }
 
-
   handleSubmit(event) {
     event.preventDefault();
     fetch('http://localhost:4000/api/configurator/create', {
       method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         entry: event.target.entry.value, //this.entry.value, 
         output: event.target.output.value// this.output.value

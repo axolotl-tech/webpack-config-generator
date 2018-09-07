@@ -37,9 +37,7 @@ class App extends Component {
             <Route exact path="/signup" component={Signup} />
             <Route 
             exact path="/" 
-            render={() => <Form 
-               
-              /> 
+            render={() => <Form /> 
             }/>
           </Switch>
         </div>
