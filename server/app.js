@@ -28,7 +28,7 @@ app.post('*', (req, res) => {
   console.log('IN APP.JS POST');
   console.log('REQ BODY', req.body);
   console.log('REQ ', req.body);
-  res.send('MESSAGE');
+  res.send();
 });
 
 // Default Route

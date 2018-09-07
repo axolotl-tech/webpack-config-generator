@@ -13,7 +13,8 @@ router.get('/ping', (_, res) => res.status(200).send({ ping: 'ok' }));
 router.post(
   '/configurator/create',
   configurator.generateConfiguration,
-  (_, res) => {
+  (req, res) => {
+    console.log(req.body);
     res.status(200).json(res.locals.configuration);
   }
 );
