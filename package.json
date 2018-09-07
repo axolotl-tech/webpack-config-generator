@@ -1,24 +1,20 @@
 {
   "name": "webpack-config-generator",
   "version": "1.0.0",
-  "description": "",
+  "private": true,
+  "description": "Generates a starter webpack config file",
   "main": "server/server.js",
+  "license": "MIT",
   "scripts": {
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "server": "nodemon server/server",
-    "client": "webpack-dev-server --hot",
-    "build": "webpack"
+    "start": "concurrently --kill-others-on-fail \"npm run start:server\" \"npm run start:client\"",
+    "start:server": "nodemon server/server",
+    "start:client": "webpack-dev-server --hot",
+    "test": "jest -i --watch",
+    "test:update": "npm run test --updateSnapshot",
+    "test:coverage": "jest -i --coverage",
+    "build": "webpack",
+    "precommit": "lint-staged"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Webpack-Config-Generator/Webpack-Config-Generator.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Webpack-Config-Generator/Webpack-Config-Generator/issues"
-  },
-  "homepage": "https://github.com/Webpack-Config-Generator/Webpack-Config-Generator#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
@@ -32,7 +28,11 @@
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.4.2",
     "babel-loader": "^8.0.2",
+    "chai": "^4.1.2",
+    "chai-http": "^4.2.0",
     "concurrently": "^4.0.1",
     "css-loader": "^1.0.0",
     "enzyme": "^3.6.0",
@@ -43,6 +43,7 @@
     "mongodb": "^3.1.4",
     "nodemon": "^1.18.4",
     "prettier": "^1.14.2",
+    "regenerator-runtime": "^0.12.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
     "superagent": "^3.8.3",
@@ -50,5 +51,30 @@
     "webpack": "^4.17.2",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.8"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/test/setupTests.js",
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "roots": [
+      "<rootDir>/src/",
+      "<rootDir>/server/"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ]
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
+    ],
+    "server/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
   }
 }

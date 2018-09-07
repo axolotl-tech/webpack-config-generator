@@ -1,6 +1,11 @@
+# Personal Settings
+.vscode/settings.json
+
+# Build
 /dist
 
 # Logs
+/coverage
 logs
 *.log
 npm-debug.log*

@@ -1,6 +1,11 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 
-router.get('/ping', (_, res) => res.status(200).send({ ping: 'ok' }))
+/*
+  Note: All routes here are set with /api/ as their base,
+    i.e. the route is /api/ping
+*/
 
-module.exports = router
+router.get('/ping', (_, res) => res.status(200).send({ ping: 'ok' }));
+
+module.exports = router;
