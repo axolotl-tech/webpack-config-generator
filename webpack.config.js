@@ -1,4 +1,5 @@
-const path = require('path')
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/index.js',
@@ -23,12 +24,14 @@ module.exports = {
       }
     ]
   },
+  plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
     contentBase: path.join(__dirname, 'public/'),
     port: 3000,
     inline: true,
     hotOnly: true,
     publicPath: 'http://localhost:3000/dist/',
+    historyApiFallback: true,
     proxy: [
       {
         context: ['/api'],
@@ -36,4 +39,4 @@ module.exports = {
       }
     ]
   }
-}
+};
