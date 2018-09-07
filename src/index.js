@@ -1,2 +1,6 @@
-// Entry file
-console.log('inside index.js');
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+const App = () => <h1>"Hello, world!" said React</h1>
+
+ReactDOM.render(<App />, document.getElementById('root'))
