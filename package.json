@@ -4,13 +4,24 @@
   "private": true,
   "description": "Generates a starter webpack config file",
   "main": "server/server.js",
+  "license": "MIT",
   "scripts": {
     "start": "concurrently --kill-others-on-fail \"npm run start:server\" \"npm run start:client\"",
     "start:server": "nodemon server/server",
     "start:client": "webpack-dev-server --hot",
-    "build": "webpack"
+    "build": "webpack",
+    "precommit": "lint-staged"
   },
-  "license": "MIT",
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
+    ],
+    "server/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
