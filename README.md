@@ -19,6 +19,24 @@ The server will run on [port 4000](http://localhost:4000/).
 - `npm run test:coverage` to see a coverage report
 - `npm run test:update` to update files being tracked by snapshots
 
+## Available routes
+
+### Main routes
+
+- `/` => `returns html`
+
+### API routes
+
+- `/api/ping` => `returns JSON`
+- `/api/configurator/create` => `returns JSON`
+  - Returns the final product in the form of an object
+
+### AUTH routes
+
+- `/auth/ping` => `returns JSON`
+- `/auth/set` => `returns Status 204`
+  - Sets the cookie
+
 ## License
 
 MIT License
