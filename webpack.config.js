@@ -34,7 +34,7 @@ module.exports = {
     historyApiFallback: true,
     proxy: [
       {
-        context: ['/api'],
+        context: ['/api', '/auth'],
         target: 'http://localhost:4000'
       }
     ]
