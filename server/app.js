@@ -12,13 +12,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'public'))); // if we don't have any files, we can run this
 
 // Routers
-const api = require('./api');
-const auth = require('./auth');
-app.use('/auth', auth);
-app.use('/api', api);
+app.use('/auth', require('./auth'));
+app.use('/api', require('./api'));
 
 // Default Route
-app.get('*', (req, res) => {
+app.get('*', (_, res) => {
   //Routes all requests to Express from React
   res.sendFile(path.resolve(__dirname, '..', 'public', 'index.html'));
 });
