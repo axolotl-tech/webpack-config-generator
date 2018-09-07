@@ -2,15 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
-/* Configure app for Hot Reloading */
-const root = document.getElementById('root');
+// Extends support for "fetch" to additional browsers
+import 'whatwg-fetch';
+
+/* 
+  Because Hot Module Reloading requires us to call the render
+    method twice, we wrap in a function to prevent repetition
+*/
 let render = () => {
   const App = require('./App').default;
   ReactDOM.render(
     <BrowserRouter>
       <App />
     </BrowserRouter>,
-    root
+    document.getElementById('root')
   );
 };
 
