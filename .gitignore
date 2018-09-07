@@ -5,6 +5,7 @@
 /dist
 
 # Logs
+/coverage
 logs
 *.log
 npm-debug.log*

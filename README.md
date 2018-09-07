@@ -2,9 +2,23 @@
 
 > Generates a starter webpack config file
 
-## Run locally
+## Run the project locally
 
 - `git clone https://github.com/Webpack-Config-Generator/Webpack-Config-Generator Webpack-Config-Generator`
 - `cd Webpack-Config-Generator`
 - `npm install`
 - `npm start`
+
+The client will run on [port 3000](http://localhost:3000/).
+
+The server will run on [port 4000](http://localhost:4000/).
+
+## Run the testing suite
+
+- `npm run test`
+- `npm run test:coverage` to see a coverage report
+- `npm run test:update` to update files being tracked by snapshots
+
+## License
+
+MIT License
