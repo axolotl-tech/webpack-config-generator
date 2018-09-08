@@ -8,7 +8,10 @@ class DownloadPage extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log("I've been clicked!");
+
+    // Note: Traditional AJAX requests won't open
+    //    the necessary dialog box
+    window.open('/api/configurator/download');
   }
 
   render() {

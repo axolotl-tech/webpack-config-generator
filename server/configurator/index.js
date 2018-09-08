@@ -33,6 +33,11 @@ function generateConfiguration(req, res, next) {
   }
 }
 
+function generateFile(req, res, next) {
+  next();
+}
+
 module.exports = {
-  generateConfiguration
+  generateConfiguration,
+  generateFile
 };
