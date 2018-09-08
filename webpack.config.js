@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: ['./src/index.js', 'webpack/hot/dev-server'],
   mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist/'),
@@ -21,15 +21,23 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader']
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: ['file-loader']
       }
     ]
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  // plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
     contentBase: path.join(__dirname, 'public/'),
     port: 3000,
+    hot: true,
     inline: true,
-    hotOnly: true,
     publicPath: 'http://localhost:3000/dist/',
     historyApiFallback: true,
     proxy: [

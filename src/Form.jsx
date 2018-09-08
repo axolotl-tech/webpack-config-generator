@@ -53,9 +53,11 @@ class Form extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3>Welcome!</h3>
-        <form onSubmit={this.handleSubmit}>
+      <div className="form-page">
+        <h2 className="h2__form-heading">
+          Answer these questions to generate your configuration!
+        </h2>
+        <form onSubmit={this.handleSubmit} className="form__questionnaire">
           <label> Question 1 re: entry here: </label>
           <input
             name="entry"
