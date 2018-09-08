@@ -3,11 +3,7 @@ const router = express.Router();
 const formController = require('../controllers/formController');
 const path = require('path');
 
-const {
-  generateConfiguration,
-  generateFile,
-  sendFile
-} = require('../configurator');
+const { generateConfiguration, generateFile } = require('../configurator');
 
 /*
   Note: All routes here are set with /api/ as their base,
@@ -32,6 +28,6 @@ router.post(
 );
 
 //  /api/configurator/download
-router.get('/configurator/download', generateFile, sendFile);
+router.get('/configurator/download', generateFile);
 
 module.exports = router;
