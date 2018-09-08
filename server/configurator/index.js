@@ -1,3 +1,4 @@
+const fs = require('fs');
 const {
   buildExports,
   buildScript,
@@ -5,7 +6,6 @@ const {
 } = require('./functions');
 
 function generateConfiguration(req, res, next) {
-  console.log('IN GENERATE CONFIG, REQ BODY: ', req.body);
   if (req.body && req.body.answers) {
     const { answers } = req.body;
 
@@ -33,6 +33,22 @@ function generateConfiguration(req, res, next) {
   }
 }
 
+function generateFile(req, res, next) {
+  next();
+}
+
+function sendFile(req, res, next) {
+  const filename = 'webpack.config.js';
+  const filepath = path.resolve(`./server/configurator/__temp__/${filename}`);
+  res.setHeader('Content-disposition', `attachment; filename="${filename}"`);
+
+  res.status(200).download(filepath, filename, err => {
+    res.status(418).end(err);
+  });
+}
+
 module.exports = {
-  generateConfiguration
+  generateConfiguration,
+  sendFile,
+  generateFile
 };
