@@ -24,7 +24,7 @@ class Form extends React.Component {
       [name]: value
     });
   }
-
+ 
   handleSubmit(event) {
     const { history } = this.props;
     event.preventDefault();
@@ -34,8 +34,10 @@ class Form extends React.Component {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
+      credentials: 'same-origin', //supposed to add cookies to fetch request
       body: JSON.stringify({
         answers: {
+          cookieID: document.cookie,
           0: event.target.entry.value, //this.entry.value,
           1: event.target.entryDir.value,
           2: event.target.output.value, // this.output.value
