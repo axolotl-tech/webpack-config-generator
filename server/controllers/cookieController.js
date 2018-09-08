@@ -2,7 +2,7 @@ function setCookie(req, res, next) {
   const name = 'wbpk-cookie';
 
   if (!req.cookies[name]) {
-    const options = { httpOnly: true };
+    const options = {};
     res.cookie(name, generateRandomString(), options);
   }
 

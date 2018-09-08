@@ -6,9 +6,10 @@ const {
 } = require('./functions');
 
 function generateConfiguration(req, res, next) {
+  console.log('we passed the form creation middleware');
   if (req.body && req.body.answers) {
     const { answers } = req.body;
-
+    console.log(answers);
     // Build the object
     const configuration = {};
     configuration.moduleExports = buildExports(answers);
