@@ -26,6 +26,7 @@ function generateConfiguration(req, res, next) {
 
     // Pass on the result
     res.locals.configuration = configuration;
+
     next();
   } else {
     // If we received an improper body, return an error

@@ -7,7 +7,9 @@ class Form extends React.Component {
     this.state = {
       value: '',
       entry: '',
-      output: ''
+      entryDir: '',
+      output: '',
+      outputDir: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -33,8 +35,12 @@ class Form extends React.Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        entry: event.target.entry.value, //this.entry.value,
-        output: event.target.output.value // this.output.value
+        answers: {
+          0: event.target.entry.value, //this.entry.value,
+          1: event.target.entryDir.value,
+          2: event.target.output.value, // this.output.value
+          3: event.target.outputDir.value
+        }
       })
     })
       .then(function(response) {
@@ -58,20 +64,35 @@ class Form extends React.Component {
           Answer these questions to generate your configuration!
         </h2>
         <form onSubmit={this.handleSubmit} className="form__questionnaire">
-          <label> Question 1 re: entry here: </label>
+          <label> What is the name of your entry file? </label>
           <input
             name="entry"
             type="text"
             value={this.state.entry}
             onChange={this.handleChange}
           />
-          <label> Question 2 re: output here: </label>
+          <label> Where is your entry file located? </label>
+          <input
+            name="entryDir"
+            type="text"
+            value={this.state.entryDir}
+            onChange={this.handleChange}
+          />
+          <label> What would you like to call your bundle file? </label>
           <input
             name="output"
             type="text"
             value={this.state.output}
             onChange={this.handleChange}
           />
+          <label> What name would you like to call your bundle folder? </label>
+          <input
+            name="outputDir"
+            type="text"
+            value={this.state.outputDir}
+            onChange={this.handleChange}
+          />
+
           <input type="submit" value="Submit" onSubmit={this.handleSubmit} />
         </form>
       </div>
