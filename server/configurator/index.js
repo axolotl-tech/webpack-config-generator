@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const Form = require('../../data/db/models/form-schema');
 
 const {
   buildExports,
@@ -8,7 +9,6 @@ const {
 } = require('./functions');
 
 function generateConfiguration(req, res, next) {
-  console.log('we passed the form creation middleware');
   if (req.body && req.body.answers) {
     const { answers } = req.body;
     console.log(answers);

@@ -16,10 +16,6 @@ router.get('/ping', (_, res) => res.status(200).send({ ping: 'ok' }));
 //  /api/configurator/create
 router.post(
   '/configurator/create',
-  (req, res, next) => {
-    console.log('reached the start of the middleware');
-    next();
-  },
   formController.createForm,
   generateConfiguration,
   (req, res) => {
@@ -28,6 +24,6 @@ router.post(
 );
 
 //  /api/configurator/download
-router.get('/configurator/download', generateFile);
+router.get('/configurator/download', formController.findForm, generateFile);
 
 module.exports = router;
