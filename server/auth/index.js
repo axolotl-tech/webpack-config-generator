@@ -8,8 +8,10 @@ const cookieController = require('../cookie/cookieController');
     i.e. the route is /auth/ping
 */
 
+//  /auth/ping
 router.get('/ping', (_, res) => res.status(200).send({ ping: 'ok' }));
 
+//  /auth/set
 router.get('/set', cookieController.setCookie);
 
 module.exports = router;

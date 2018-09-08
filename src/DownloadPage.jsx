@@ -9,8 +9,7 @@ class DownloadPage extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    // Note: Traditional AJAX requests won't open
-    //    the necessary dialog box
+    // Note: Traditional AJAX requests won't open the necessary dialog box
     window.open('/api/configurator/download');
   }
 
