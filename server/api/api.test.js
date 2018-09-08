@@ -19,7 +19,13 @@ describe('api', () => {
 
     it('should return json when creating a new configuration', done => {
       const postBody = {
-        answers: { 0: '/build', 1: 'index.js', 2: '/dist', 3: 'bundle.js' }
+        answers: {
+          cooikeID: 'mockdata',
+          0: '/build',
+          1: 'index.js',
+          2: '/dist',
+          3: 'bundle.js'
+        }
       };
       request(app)
         .post('/api/configurator/create')
