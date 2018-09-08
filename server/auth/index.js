@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const cookieController = require('../cookie/cookieController');
+const cookieController = require('../controllers/cookieController');
 
 /*
   Note: All routes here are set with /auth/ as their base,

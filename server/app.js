@@ -33,7 +33,7 @@ app.post('*', (req, res) => {
 
 // Default Route
 app.get('*', (_, res) => {
-  //Routes all requests to Express from React
+  // Routes all requests to Express from React
   res.sendFile(path.resolve(__dirname, '..', 'public', 'index.html'));
 });
 
