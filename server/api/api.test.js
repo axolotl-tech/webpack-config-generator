@@ -14,7 +14,7 @@ describe('api', () => {
       request(app)
         .post('/api/configurator/create')
         .send({})
-        .expect(400, done);
+        .expect(418, done);
     });
 
     it('should return json when creating a new configuration', done => {

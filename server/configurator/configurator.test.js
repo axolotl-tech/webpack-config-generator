@@ -24,7 +24,7 @@ describe('configuration generator', () => {
 
       expect(result).to.not.equal(null);
       expect(typeof result).to.equal('object');
-      expect(result.output.filename).to.equal(postBody[3]);
+      expect(result.output.filename).to.equal(postBody[2]);
     });
   });
 

@@ -9,10 +9,10 @@ function buildExports(answers) {
   try {
     // Note: Make sure to match the keys on strings, not numbers;
     //    otherwise, Node.js seems to flip out and throw an error
-    let entryDirectory = answers['0'];
-    let entryFile = answers['1'];
-    let outputDirectory = answers['2'];
-    let outputFile = answers['3'];
+    let entryFile = answers['0'];
+    let entryDirectory = answers['1'];
+    let outputFile = answers['2'];
+    let outputDirectory = answers['3'];
 
     let moduleExports = {
       entry: entryDirectory + entryFile,
