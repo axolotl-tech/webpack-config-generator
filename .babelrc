@@ -10,7 +10,9 @@
     "@babel/preset-react"
   ],
   "plugins": [
-    ["react-hot-loader/babel"]//,
-    // ["transform-class-properties", { "spec": true }]
+    "react-hot-loader/babel",
+    "@babel/plugin-transform-react-constant-elements",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread"
   ]
 }

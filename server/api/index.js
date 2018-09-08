@@ -1,22 +1,37 @@
 const express = require('express');
 const router = express.Router();
+const formController = require('../controllers/formController');
+const path = require('path');
 
-const configurator = require('../configurator');
+const {
+  generateConfiguration,
+  generateFile,
+  sendFile
+} = require('../configurator');
 
 /*
   Note: All routes here are set with /api/ as their base,
     i.e. the route is /api/ping
 */
 
+//  /api/ping
 router.get('/ping', (_, res) => res.status(200).send({ ping: 'ok' }));
 
+//  /api/configurator/create
 router.post(
   '/configurator/create',
-  configurator.generateConfiguration,
+  (req, res, next) => {
+    console.log('reached the start of the middleware');
+    next();
+  },
+  formController.createForm,
+  generateConfiguration,
   (req, res) => {
-    console.log(req.body);
     res.status(200).json(res.locals.configuration);
   }
 );
+
+//  /api/configurator/download
+router.get('/configurator/download', generateFile, sendFile);
 
 module.exports = router;

@@ -1,3 +1,4 @@
+const fs = require('fs');
 const {
   buildExports,
   buildScript,
@@ -5,10 +6,10 @@ const {
 } = require('./functions');
 
 function generateConfiguration(req, res, next) {
-  console.log('IN GENERATE CONFIG, REQ BODY: ', req.body);
+  console.log('we passed the form creation middleware');
   if (req.body && req.body.answers) {
     const { answers } = req.body;
-
+    console.log(answers);
     // Build the object
     const configuration = {};
     configuration.moduleExports = buildExports(answers);
@@ -26,6 +27,7 @@ function generateConfiguration(req, res, next) {
 
     // Pass on the result
     res.locals.configuration = configuration;
+
     next();
   } else {
     // If we received an improper body, return an error
@@ -33,6 +35,22 @@ function generateConfiguration(req, res, next) {
   }
 }
 
+function generateFile(req, res, next) {
+  next();
+}
+
+function sendFile(req, res, next) {
+  const filename = 'webpack.config.js';
+  const filepath = path.resolve(`./server/configurator/__temp__/${filename}`);
+  res.setHeader('Content-disposition', `attachment; filename="${filename}"`);
+
+  res.status(200).download(filepath, filename, err => {
+    res.status(418).end(err);
+  });
+}
+
 module.exports = {
-  generateConfiguration
+  generateConfiguration,
+  sendFile,
+  generateFile
 };

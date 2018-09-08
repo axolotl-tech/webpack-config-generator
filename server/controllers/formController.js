@@ -2,28 +2,35 @@ const Form = require('../../data/db/models/form-schema');
 
 const FormController = {
   createForm: (req, res, next) => {
-    console.log(req.cookies['wbpk-cookie']);
-    
     const newForm = new Form({
-      cookieID: req.cookies['wbpk-cookie'], //way to access the form in the future
-      test: 'IM AALIIIVVEE',
-      // '1': req.body['1'] - way to access questions
+      cookieID: req.body.answers.cookieID,
+      0: req.body.answers[0],
+      1: req.body.answers[1],
+      2: req.body.answers[2],
+      3: req.body.answers[3]
     });
 
-    newForm.save((err) => {
+    newForm.save(err => {
+      console.log('bajdfnldka');
       if (err) return err;
-      console.log('New form has been saved.')
+      console.log('New form has been saved.');
     });
-    next();
-  },
-  findForm: (req, res, next) => {
-    console.log('inside findForm controller method');
-    Form.findOne({ cookieID: req.cookies['wbpk-cookie'] }, function(err, thing) {
-      res.locals.form = thing;
-      return thing;
+
+    Form.findOne({ cookieID: newForm.cookieID }, (err, thing) => {
+      console.log('at form findOne');
     });
+
     next();
   }
-}
+
+  // findForm: (req, res, next) => {
+  //   console.log('inside findForm controller method');
+  //   Form.findOne({ cookieID: req.body.answers.cookieID }, ['wbpk-cookie'] }, function(err, thing) { //change cookieID to correct location;
+  //     res.locals.form = thing;
+  //     return thing;
+  //   });
+  //   next();
+  // }
+};
 
 module.exports = FormController;
