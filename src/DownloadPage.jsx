@@ -15,10 +15,12 @@ class DownloadPage extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h3>Download Page</h3>
-        <input type="submit" value="Download Me!" />
-      </form>
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <h3>Download Page</h3>
+          <input type="submit" value="Download Me!" />
+        </form>
+      </div>
     );
   }
 }
