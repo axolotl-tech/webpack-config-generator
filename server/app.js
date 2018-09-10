@@ -25,10 +25,6 @@ app.use('/auth', require('./auth'));
 app.use('/api', require('./api'));
 
 app.post('*', (req, res) => {
-  //* is not ideal ->
-  // console.log('IN APP.JS POST');
-  // console.log('REQ BODY', req.body);
-  // console.log('REQ ', req.body);
   res.send();
 });
 

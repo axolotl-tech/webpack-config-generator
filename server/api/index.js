@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const formController = require('../controllers/formController');
-const path = require('path');
 
 const { generateConfiguration, generateFile } = require('../configurator');
 
@@ -17,7 +16,6 @@ router.get('/ping', (_, res) => res.status(200).send({ ping: 'ok' }));
 router.post(
   '/configurator/create',
   (req, res, next) => {
-    console.log('reached the start of the middleware');
     next();
   },
   formController.createForm,
