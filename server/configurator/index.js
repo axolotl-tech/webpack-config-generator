@@ -8,10 +8,8 @@ const {
 } = require('./functions');
 
 function generateConfiguration(req, res, next) {
-  console.log('we passed the form creation middleware');
   if (req.body && req.body.answers) {
     const { answers } = req.body;
-    console.log(answers);
     // Build the object
     const configuration = {};
     configuration.moduleExports = buildExports(answers);
@@ -61,7 +59,6 @@ function generateFile(req, res, next) {
 
   fs.writeFile(filepath, startWithComment, 'utf8', err => {
     if (err) {
-      console.log({ err });
       res.status(418).end();
     } else {
       const stream = fs.createWriteStream(filepath, { flags: 'a' });

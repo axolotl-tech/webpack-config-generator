@@ -24,7 +24,7 @@ class Form extends React.Component {
       [name]: value
     });
   }
- 
+
   handleSubmit(event) {
     const { history } = this.props;
     event.preventDefault();
@@ -46,13 +46,9 @@ class Form extends React.Component {
       })
     })
       .then(function(response) {
-        console.log('line 50 of fetch');
-        console.log(response);
         return response;
       })
       .then(function(response) {
-        console.log('line 53 of fetch');
-        console.log(response, { status: response.status });
         if (response.status === 200) {
           history.push('/download');
         }

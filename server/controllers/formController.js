@@ -11,26 +11,13 @@ const FormController = {
     });
 
     newForm.save(err => {
-      console.log('bajdfnldka');
       if (err) return err;
-      console.log('New form has been saved.');
     });
 
-    Form.findOne({ cookieID: newForm.cookieID }, (err, thing) => {
-      console.log('at form findOne');
-    });
+    Form.findOne({ cookieID: newForm.cookieID }, (err, thing) => {});
 
     next();
   }
-
-  // findForm: (req, res, next) => {
-  //   console.log('inside findForm controller method');
-  //   Form.findOne({ cookieID: req.body.answers.cookieID }, ['wbpk-cookie'] }, function(err, thing) { //change cookieID to correct location;
-  //     res.locals.form = thing;
-  //     return thing;
-  //   });
-  //   next();
-  // }
 };
 
 module.exports = FormController;

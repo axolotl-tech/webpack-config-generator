@@ -24,7 +24,6 @@ function buildExports(answers) {
 
     return moduleExports;
   } catch (error) {
-    console.log({ error });
     return null;
   }
 }

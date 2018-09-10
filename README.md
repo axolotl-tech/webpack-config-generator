@@ -13,6 +13,11 @@ The client will run on [port 3000](http://localhost:3000/).
 
 The server will run on [port 4000](http://localhost:4000/).
 
+## Entry points
+
+- Server: `server/server.js`
+- Client: `src/index.js`
+
 ## Run the testing suite
 
 - `npm run test`

@@ -10,11 +10,11 @@ describe('api', () => {
         .expect('Content-Type', /application\/json/, done);
     });
 
-    it('should return 4xx if the configurator receives invalid data', done => {
+    it('should return 5xx if the configurator receives invalid data', done => {
       request(app)
         .post('/api/configurator/create')
         .send({})
-        .expect(418, done);
+        .expect(500, done);
     });
 
     it('should return json when creating a new configuration', done => {
